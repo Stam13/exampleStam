@@ -1,5 +1,6 @@
 name: Simple CI
 
+
 on:
   push:
     branches:
@@ -15,3 +16,6 @@ jobs:
 
       - name: Run a one-line script
         run: echo "Hello, world!"
+      
+      - name: Print envs
+        run: env
