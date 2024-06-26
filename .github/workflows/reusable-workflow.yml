@@ -1,0 +1,33 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: 'Name of the user'
+        required: true
+        type: string
+      run-tests:
+        description: 'Whether to run tests'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Greet the user
+        run: echo "Hello, ${{ inputs.name }}!"
+
+  test-job:
+    if: ${{ inputs.run-tests }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run test
+        run: echo "Running tests..."
