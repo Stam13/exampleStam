@@ -1,9 +1,9 @@
-name: CI
+name: CI-Actions
 
 on:
   push:
     branches:
-    - main
+      - main
 
 jobs:
   build:
@@ -12,17 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: List directory contents
-        run: |
-          echo "Root directory:"
-          ls -R
-          echo "Actions directory:"
-          ls -R .github/actions/koko_project
 
       - name: Run My Custom Action
         uses: ./.github/actions/koko_project
         with:
-          name: "Worlds"
+          name: Worlds
