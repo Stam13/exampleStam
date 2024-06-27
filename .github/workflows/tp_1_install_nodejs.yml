@@ -65,4 +65,12 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: project-artifacts-${{ matrix.node
+        name: project-artifacts-${{ matrix.node-version }}
+        path: |
+          dist/
+          test-results/
+      if: always()
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
