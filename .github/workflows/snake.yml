@@ -16,8 +16,16 @@ jobs:
           token: ${{ secrets.PAT }}
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install canvas
+        run: npm install canvas
+
       - name: Generate Snake Animation
-        uses: Platane/snk@v3
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
