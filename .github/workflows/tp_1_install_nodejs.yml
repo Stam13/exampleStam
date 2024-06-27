@@ -59,7 +59,7 @@ jobs:
           echo "No build script found in package.json"
           echo "Creating a sample build output"
           mkdir -p dist
-          echo "Sample build output" > dist/sample.txt
+          echo "Sample build output" > Stam13/exampleStam/sample.txt
         fi
 
     - name: Upload artifacts
@@ -67,8 +67,8 @@ jobs:
       with:
         name: project-artifacts-${{ matrix.node-version }}
         path: |
-          dist/
-          test-results/
+          Stam13/
+          exampleStam/
       if: always()
 
 concurrency:
