@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
+          fetch-depth: 0
 
       - name: Generate Snake Animation
         uses: Platane/snk@v3
@@ -29,3 +32,5 @@ jobs:
           git add dist/
           git commit -m "Generate snake animation"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
