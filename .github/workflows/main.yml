@@ -13,11 +13,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: List directory contents
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+          echo "Contents of .github/actions/koko_project:"
+          ls -la .github/actions/koko_project
+
       - name: Install dependencies
         run: |
           cd .github/actions/koko_project
           npm install
-
+          
       - name: Run My Custom Action
         uses: ./.github/actions/koko_project
         with:
