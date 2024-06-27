@@ -59,7 +59,7 @@ jobs:
           echo "No build script found in package.json"
           echo "Creating a sample build output"
           mkdir -p dist
-          echo "Sample build output" > Stam13/exampleStam/sample.txt
+          echo "Sample build output" > dist/sample.txt
         fi
 
     - name: Upload artifacts
