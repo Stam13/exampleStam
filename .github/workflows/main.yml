@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd .github/actions/koko_project
-          npm ci
+          npm install
 
       - name: Run My Custom Action
         uses: ./.github/actions/koko_project
