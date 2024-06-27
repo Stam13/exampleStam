@@ -25,4 +25,4 @@ jobs:
       - name: Run My Custom Action
         uses: ./.github/actions/koko_project
         with:
-          name: "World"
+          name: "Worlds"
