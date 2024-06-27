@@ -11,8 +11,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -28,7 +27,6 @@ jobs:
         pwd
         echo "Directory contents:"
         ls -la
-      shell: bash
 
     - name: Check for package.json
       run: |
@@ -40,7 +38,6 @@ jobs:
           echo "Creating a basic package.json"
           npm init -y
         fi
-      shell: bash
 
     - name: Install dependencies
       run: npm install
@@ -68,12 +65,4 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: project-artifacts-${{ matrix.os }}-${{ matrix.node-version }}
-        path: |
-          dist/
-          test-results/
-      if: always()
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+        name: project-artifacts-${{ matrix.node
