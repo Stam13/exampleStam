@@ -67,8 +67,8 @@ jobs:
       with:
         name: project-artifacts-${{ matrix.node-version }}
         path: |
-          Stam13/
-          exampleStam/
+          dist/
+          test-results/
       if: always()
 
 concurrency:
