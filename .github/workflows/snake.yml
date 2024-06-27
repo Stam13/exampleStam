@@ -25,6 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
+          token: ${{secrets.PAT1}}
           node-version: '16'
 
       - name: Install dependencies
@@ -36,6 +37,7 @@ jobs:
       - name: Generate Snake Animation
         uses: Platane/snk@v3
         with:
+          token: ${{secrets.PAT1}}
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-snake.svg
@@ -49,3 +51,4 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.PAT1 }}
+        
